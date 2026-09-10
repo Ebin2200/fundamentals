@@ -1,0 +1,21 @@
+<script>
+        let correctPassword="javascript123";
+        let attempts=0;
+        let loginSuccessful=false;
+
+        while(attempts<3){
+          let password =prompt("Enter your password");
+        if(password=== correctPassword){
+          alert("Login successful");
+          loginSuccessful=true;
+          break;
+        }else{
+           attempts++;
+           alert("Incorrect password .Attempt"+attempts+"of 3");
+           }
+        }
+        if(!loginSuccessful){
+          alert("Account Locked");
+        }
+</script>
+

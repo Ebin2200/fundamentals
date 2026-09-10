@@ -1,0 +1,16 @@
+<script>
+         function BiggestNumber(numbers=[]){
+              var biggest_number=0
+         if(numbers.lenght>0){
+         for(var index in numbers){
+         if(biggest_number<numbers[index]){
+             biggest_number=numbers[index]
+             }
+           }
+         }
+          return"The biggest number is "+biggest_number
+         }
+         var numbers=[50,3,40,100,40]
+         var result=BiggestNumber(numbers)
+         document.write(result);
+</script>

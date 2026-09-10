@@ -1,0 +1,22 @@
+<script>
+        class customer{
+             constructor(name,age,gender){
+              this.first_name=name;
+              this.age=age;
+           }
+        view_profile(){
+             let profile="customer profile<br/>"+
+                         "Name:"+this.first_name+"<br/>"+
+                         "Age:"+this.age+"<br/>"+
+                         "Gender:"+this.gender;
+                  return profile;
+              }
+        }
+        let name="sami sanu";
+        let age=21;
+        let gender="male";
+
+        let obj=new customer(name,age,gender)
+        let result=obj.view_profile();
+        document.write(result);
+</script>

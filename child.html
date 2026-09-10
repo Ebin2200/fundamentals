@@ -1,0 +1,159 @@
+<script>
+        //parent class
+        class school{
+               constructor(){
+                       this.student_data={
+                       100:{first_name:"Ebin",last_name:"master",gender:"male",standard:"11"},
+                       101:{first_name:"gleneena",last_name:"alfy",gender:"female",standard:"11"},
+                       102:{first_name:"sami",last_name:"sanil",gender:"male",standard:"11"},
+                       103:{first_name:"Dolly",last_name:"David",gender:"female",standard:"11"},
+                       104:{first_name:"salmon",last_name:"sachi",gender:"female",standard:"11"},
+                       };
+                       this.exam_result={
+                       1:{student_id:100,grade:"A"},
+                       2:{student_id:101,grade:"B"},
+                       3:{student_id:102,grade:"A+"},
+                       4:{student_id:103,grade:"C"},
+                       5:{student_id:104,grade:"B+"},
+                       };
+                       this.school_name="The Great Indian School";
+      }
+      about_school(){
+            let info="<h1>The school:"+this.school_name+"</h1><h2>with a total strength of"
++Object.keys(this.student_data).length+"</h2>";
+            /*object.key(this.student_data).length finds the total students in 
+            student_data(it is a JSON object)*/
+            return info;
+     }
+     publish_exam_result(){
+            let exam_result_list="<h1>Exam Result</h1>";
+            let student_id=0;
+            let full_name="";
+            for(let id in this.exam_result){
+                    student_id = this.exam_result[id]["student_id"];
+                    full_name="";
+                    full_name=full_name.concat(this.student_data[student_id]["first_name"],"",
+ this.student_data[student_id]["last_name"]);
+                    exam_result_list+="<hr/><br/>"+
+                    "student Id:"+student_id+"<br/>"+
+                    "full Name:"+full_name+"<br/>"+
+                    "standard:"+this.student_data[student_id]["standard"]+"<br/>"+
+                    "Grade:"+this.exam_result[id]["grade"]+"<br/>";
+              }
+              return exam_result_list;
+         }
+         all_student(){
+             let result_list="<h1>studentlist</h1>";
+             for(let id in this.student_data){
+                        result_list+="<hr/><br/>"+
+                        "firstName:"+this.student_data[id]["first_name"]+"<br/>"+
+                        "lastName:"+this.student_data[id]["last_name"]+"<br/>"+
+                        "Gender:"+this.student_data[id]["gender"]+"<br/>"+
+                        "standard:"+this.student_data[id]["standard"]+"<br/>";
+             }
+             return result_list;
+      }
+}//End parent class
+class student extends school{
+         student_profile(student_id){
+                 let profile="<h1>student Info</h1>";
+                 if(this.student_data[student_id]!=null){
+                         //joining first and last name using concat(str1,str2)function is JS
+                         let full_name="";
+                         full_name =full_name.concat(this.student_data[student_id]["first_name"], 				this.student_data[student_id]["last_name"]);
+                        
+                     profile+="<hr/><br/>"+
+                     "FullName:"+full_name+"<br/>"+
+                     "Gender:"+this.student_data[student_id]["gender"]+"<br/>"+
+                     "standard:"+this.student_data[student_id]["standard"];
+               }else{
+                     profile+="<br/>Id:"+student_id+"student not found!<br/>";
+               }
+               return profile;
+           }
+      
+               
+           search_exam_result(student_id){
+                 let grade="Not found!";
+                 let full_name="";
+                 let result="<h1>student Exam result</h1>";
+                 //verify the student exists in the student data
+                 if(this.student_data[student_id]!=null){
+                       for(let exam_id in this.exam_result){
+                 //verify the exam data forstudent_id
+                 if(this.exam_result[exam_id]["student_id"]==student_id){
+                          grade=this.exam_result[exam_id]["grade"];
+                          //joining first and last name using concat(str1,str2)function is JS
+                 
+                          full_name="";
+                          full_name =full_name.concat
+                          (this.student_data[student_id]["first_name"],"",
+                          this.student_data[student_id]["last_name"]);
+                          result+="</hr><br/>"+
+                          "FullName:"+full_name+"<br/>"+
+                          "Grade:"+grade+"<br/>"+
+                          "standard:"+this.student_data[student_id]["standard"];
+                          }
+                    }
+               }else{
+                       result+="<br/>Id:"+student_id+"student not found!<br/>";
+               }
+               return result;
+          }
+   }
+   //creating instance for the child class
+   let obj=new student ();
+   //Accessing parent methods
+   document.write(obj.about_school());
+   document.write(obj.all_student());
+   document.write(obj.publish_exam_result());
+
+   //changing property values
+   obj.student_data[100]["first_name"]="steve";
+   obj.exam_result[1]["grade"]="B";
+   
+   //Accessing own methods
+   document.write(obj.student_profile(100));
+   document.write(obj.search_exam_result(100));
+
+   //Trying to access non-available data
+   document.write(obj.student_profile(300));
+   document.write(obj.search_exam_result(300));
+</script>
+
+
+
+
+
+
+
+
+
+
+          
+                       
+                       
+                       
+
+
+
+
+
+
+
+
+          
+                       
+                       
+                       
+
+
+
+
+
+
+
+          
+                       
+                       
+                       

@@ -1,0 +1,15 @@
+<script>
+        function calculationsum(numbers=[]){
+        var sum =0;
+        if(numbers.length >0){ 
+         for (var index in numbers){
+         sum+=numbers[index]
+         }
+        }
+        return sum;
+        }
+        var numbers=[1,2,3,4,5]
+        var result=calculationsum(numbers)
+        document.write (result);
+</script>
+    

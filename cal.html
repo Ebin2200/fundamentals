@@ -1,0 +1,26 @@
+<script>
+         function calculator (number1,number2,action="addition"){
+         result = 0;
+         switch (action){
+          case "addition":
+              result=number1+number2;
+              break
+          case"substraction":
+                result=number1-number2;
+              break
+          case" multipulation":
+             result= number1*number2;
+             break
+          case "division":
+             result=number1/number2
+             break;
+          default:
+             result =0
+          }
+            return result
+          }
+          var res= calculator (10,20,"addition")
+          document .write ("The value is "+res)
+          res1 = calculator (10,20,"substraction")
+          document .write ("The value is" +res1)
+</script>

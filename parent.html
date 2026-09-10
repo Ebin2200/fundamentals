@@ -1,0 +1,19 @@
+<script>
+        class parent{
+         consturtor(){
+           this.name="Rahul"
+        }
+        displayDetails(){
+          return"Hello this is from parent class<br/>"
+        }
+}
+       class child extends parent{
+       displaychildDetails(){
+         document.write(this.displayDetails())
+         document.write("This is from child class"+this.name)
+       }
+}
+       obj=new child()
+       obj.displaychildDetails()
+       //document.write (obj.displayDetails())
+</script>
